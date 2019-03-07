@@ -1,1 +1,3 @@
-heloo
+<?php
+    var_dump($_POST);
+?>
