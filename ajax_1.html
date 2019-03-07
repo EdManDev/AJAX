@@ -88,10 +88,13 @@
             if (ajax.readyState == 4) {
                 if (ajax.status == 200) {
                     var result = JSON.parse(ajax.responseText)
+
                     li_content = "Brand is: "
-                        + result.brand + "and Model is: "
-                        + result.model
+                        + result.brand_value + " And The Model is: "
+                        + result.model_value
+                        //this make me live.
                     ul.innerHTML = ""
+
                     make_list_item(li_content, ul)
                 }
             }
@@ -102,14 +105,70 @@
             parent_element.appendChild(li)
         }
         // request()
+
         setInterval(function () {
             request()
         }, 1000)
+
+
+    </script>
+
+<!-- -------------REPEAT 10X TIMES//------------------ -->
+
+    <script>
+    //-------------REPEAT 10X TIMES//------------------
+        setTimeout(function () {
+            request( im an error erase me to execute)
+
+            setTimeout(function () {
+                request()
+                setTimeout(function () {
+                    request()
+
+                    setTimeout(function () {
+                        request()
+
+                        setTimeout(function () {
+                            request()
+
+                            setTimeout(function () {
+                                request()
+
+                                setTimeout(function () {
+                                    request()
+
+                                    setTimeout(function () {
+                                        request()
+
+                                        setTimeout(function () {
+                                            request()
+
+                                            setTimeout(function () {
+                                                request()
+
+
+                                            }, 1000)
+
+                                        }, 1000)
+
+                                    }, 1000)
+
+                                }, 1000)
+
+                            }, 1000)
+
+                        }, 1000)
+
+                    }, 1000)
+
+                }, 1000)
+
+            }, 1000)
+
+        }, 1000)
+
     </script>
 
 </body>
-<footer>
-
-</footer>
 
 </html>
