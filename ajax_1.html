@@ -40,20 +40,20 @@
         a,h1{
             text-decoration: none;
             color: #00aeef; 
+            font-family: Arial;
         }
 
     </style>
 </head>
 <body>
-    <h1 style="font-family: Arial">This is An Ajax Program</h1>
+    <h1 >This is An Ajax Program</h1>
     <a href="#" ><button class="btn" onclick='request()'>Send Ajax Request</button></a>
-
 
     <script>
         var ajax = new XMLHttpRequest()
 
         function request (){
-            var url = './interface.php'
+            var url= './interface.php'
             ajax.onredystatechange = response //No Parenhesis !!!
             ajax.open('POST',url,true) //module,url,true
             ajax.setRequestHeader('content-Type','application/x-www-form-urlencoded')
