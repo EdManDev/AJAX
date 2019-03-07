@@ -10,10 +10,44 @@
         <ul>
         </ul>
     </header>
+    <style type="text/css">
+        .btn 
+        {
+            background-color: #00aeef;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            -webkit-transition-duration: 0.2s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: white; 
+            color: #00aeef; 
+            border: 2px solid #00aeef;
+        }
+        .btn:hover 
+        {
+            background-color: #00aeef;
+            color: white;
+        }
+        a,h1{
+            text-decoration: none;
+            color: #00aeef; 
+        }
+
+    </style>
 </head>
 <body>
     <h1 style="font-family: Arial">This is An Ajax Program</h1>
-    <button class='btn' onclick='request()'>Send Ajax Request</button>
+    <a href="#" ><button class="btn" onclick='request()'>Send Ajax Request</button></a>
+
 
     <script>
         var ajax = new XMLHttpRequest()
