@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,60 +11,105 @@
         </ul>
     </header>
     <style type="text/css">
-        .btn 
-        {
-            background-color: #00aeef;
-            border: none;
-            color: white;
+        li {
+            background: dodgerblue;
+            border: 2px solid #00aeef;
+            transition-duration: 0.2s;
+            border-radius: 20px;
             padding: 10px 32px;
+            margin: 20px;
+            color: #fff;
+            font-family: Arial;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        li:hover {
+            background: #ffffff;
+            color: dodgerblue;
+        }
+
+        /* Button */
+
+        .btn {
+            color: white;
+            background-color: #00aeef;
+            border: 2px solid #00aeef;
+            border: none;
+            padding: 10px 32px;
+            margin-left: 50px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 20px;
-            -webkit-transition-duration: 0.2s; /* Safari */
+            /* -webkit-transition-duration: 0.2s; Safari */
             transition-duration: 0.4s;
             cursor: pointer;
             border-radius: 20px;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            background-color: white; 
-            color: #00aeef; 
-            border: 2px solid #00aeef;
-        }
-        .btn:hover 
-        {
-            background-color: #00aeef;
-            color: white;
-        }
-        a,h1{
-            text-decoration: none;
-            color: #00aeef; 
-            font-family: Arial;
         }
 
+        .btn:hover {
+            background-color: #fff;
+            border: 2px solid #00aeef;
+            color: #00aeef;
+        }
+
+        a,
+        h1 {
+            text-decoration: none;
+            color: #00aeef;
+            font-family: Arial;
+        }
     </style>
 </head>
+
 <body>
-    <h1 >This is An Ajax Program</h1>
-    <a href="#" ><button class="btn" onclick='request()'>Send Ajax Request</button></a>
+    <h1>This is An Ajax Program</h1>
+    <!-- <a href="#" ><button class="btn" onclick='request()'>Send Ajax Request</button></a> -->
+    <ul id="ul"></ul>
 
     <script>
         var ajax = new XMLHttpRequest()
+        var ul = document.getElementById('ul')
 
-        function request (){
-            var url= './interface.php'
-            ajax.onredystatechange = response //No Parenhesis !!!
-            ajax.open('POST',url,true) //module,url,true
-            ajax.setRequestHeader('content-Type','application/x-www-form-urlencoded')
-            // necessary if you  are using data post
-            ajax.send('name=me&msg=my mesag&time=2019')
+        function request() {
+
+            var url = './interface.php'
+            ajax.onreadystatechange = response //No Parenhesis !!!
+            ajax.open('POST', url, true) //module,url,true
+            ajax.setRequestHeader('content-Type', 'application/x-www-form-urlencoded')
+            ajax.send('range=all')
         }
 
-        function response(){
-            console.log('response func.has been triggered...')
+        function response() {
+            if (ajax.readyState == 4) {
+                if (ajax.status == 200) {
+                    var result = JSON.parse(ajax.responseText)
+                    li_content = "Brand is: "
+                        + result.brand + "and Model is: "
+                        + result.model
+                    ul.innerHTML = ""
+                    make_list_item(li_content, ul)
+                }
+            }
         }
+        function make_list_item(make_list_item_content, parent_element) {
+            var li = document.createElement('li')
+            li.append(make_list_item_content)
+            parent_element.appendChild(li)
+        }
+        // request()
+        setInterval(function () {
+            request()
+        }, 1000)
     </script>
 
 </body>
+<footer>
+
+</footer>
+
 </html>
